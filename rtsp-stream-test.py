@@ -45,6 +45,7 @@ def save_rtsp_stream(rtsp_url, output_file):
 # Example usage
 #rtsp_url = "rtsp://admin:aria1104@192.168.1.174:554/cam/realmonitor?channel=1&subtype=0"  # Replace with your RTSP stream URL
 rtsp_url = "rtsp://admin:M&WCamera3@10.0.2.24:554/media/video2"
+#
 
 output_file = "output.avi"  # Replace with your desired output file path
 save_rtsp_stream(rtsp_url, output_file)

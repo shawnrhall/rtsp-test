@@ -1,5 +1,8 @@
 import cv2
 
+
+test = False
+
 def save_rtsp_stream(rtsp_url, output_file):
     # Create a VideoCapture object to connect to the RTSP stream
     cap = cv2.VideoCapture(rtsp_url)
@@ -30,7 +33,8 @@ def save_rtsp_stream(rtsp_url, output_file):
         out.write(frame)
 
         # Display the frame (optional)
-        cv2.imshow("RTSP Stream", frame)
+        # if not test:
+        #     cv2.imshow("RTSP Stream", frame)
         if cv2.waitKey(1) & 0xFF == ord('q'):
             # Quit if 'q' is pressed
             break
@@ -43,10 +47,13 @@ def save_rtsp_stream(rtsp_url, output_file):
     cv2.destroyAllWindows()
 
 # Example usage
-#rtsp_url = "rtsp://admin:aria1104@192.168.1.174:554/cam/realmonitor?channel=1&subtype=0"  # Replace with your RTSP stream URL
-rtsp_url = "rtsp://admin:M&WCamera3@10.0.2.24:554/media/video2"
+rtsp_url = "rtsp://admin:aria1104@192.168.1.174:554/cam/realmonitor?channel=1&subtype=0"  # Replace with your RTSP stream URL
+#rtsp_url = "rtsp://admin:M&WCamera3@10.0.2.24:554/media/video2"
 #
+
+# Output RTSP Stream to a new file every 15 minutes 
 
 output_file = "output.avi"  # Replace with your desired output file path
 save_rtsp_stream(rtsp_url, output_file)
 
+#  
